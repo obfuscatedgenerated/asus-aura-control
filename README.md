@@ -1,8 +1,13 @@
 # asus-aura-control
 
-Some scripts for messing with Asus Aura Sync devices. 
+Some scripts for messing with ASUS Aura Sync devices.
 
-**Windows Only**
+## Prerequisites
+
+- **Windows Only**
+- Requires hardware with ASUS Aura Sync RGB
+- Requires ASUS Aura software to be installed
+- Requires LightingService.exe from the ASUS Aura software to be running
 
 ## Setup
 
