@@ -1,14 +1,16 @@
 import time
 import aura_sdk as aura
-from PIL import Image
 from PIL import ImageGrab
 import numpy as np
+import atexit
+
+atexit.register(aura.close)
 
 print("Devices found:")
 for dev in aura.get_devices():
     print("  " + dev.Name)
 
-FPS = 30
+FPS = 60
 
 last_color = np.zeros(3)
 

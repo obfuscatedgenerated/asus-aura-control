@@ -1,5 +1,8 @@
 import time
 import aura_sdk as aura
+import atexit
+
+atexit.register(aura.close)
 
 print("Devices found:")
 for dev in aura.get_devices():
