@@ -10,6 +10,8 @@ for dev in aura.get_devices():
 
 FPS = 30
 
+last_color = np.zeros(3)
+
 while True:
     screen = ImageGrab.grab()  # Grab the screen
     screen = screen.resize(
@@ -25,5 +27,7 @@ while True:
     )  # Get the average color of the screen (axis 1 meaning get the average of each row)
     color = color.astype(int)  # Convert to int
     color = np.flip(color)  # Flip the color to match the Aura SDK
-    aura.set_all_to_color(aura.rgb_to_color(*color))  # Set the color of all devices
+    if not np.array_equal(color, last_color):
+        aura.set_all_to_color(aura.rgb_to_color(*color))  # Set the color of all devices
+        last_color = color
     time.sleep(1 / FPS)  # Wait for the next frame to conserve resources
