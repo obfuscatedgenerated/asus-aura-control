@@ -30,7 +30,7 @@ def get_devices():
 
 
 def rgb_to_color(r, g, b):
-    return (r << 16) | (g << 8) | b
+    return (b << 16) | (g << 8) | r
 
 def close():
     aura.ReleaseControl(0)

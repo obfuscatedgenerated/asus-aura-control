@@ -28,7 +28,6 @@ while True:
         axis=1
     )  # Get the average color of the screen (axis 1 meaning get the average of each row)
     color = color.astype(int)  # Convert to int
-    color = np.flip(color)  # Flip the color to match the Aura SDK
     if not np.array_equal(color, last_color):
         aura.set_all_to_color(aura.rgb_to_color(*color))  # Set the color of all devices
         last_color = color
