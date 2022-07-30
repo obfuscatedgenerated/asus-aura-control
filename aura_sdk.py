@@ -15,6 +15,11 @@ devices = aura.Enumerate(0)  # Enumerate all devices
 
 
 def set_all_to_color(color):
+    """Sets all Aura devices to the given (hexadecimal) color.
+
+    Args:
+        color (int): The color to set all devices to.
+    """    
     for dev in devices:
         if dev.Type == 0x80000:  # If the device is an RGB Keyboard
             for key in dev.Keys:
@@ -26,10 +31,25 @@ def set_all_to_color(color):
 
 
 def get_devices():
+    """Lists all Aura devices.
+
+    Returns:
+        COMObject: A list of Aura devices (enumerable).
+    """    
     return devices
 
 
 def rgb_to_color(r, g, b):
+    """Converts an RGB color to a hexadecimal color.
+
+    Args:
+        r (int): Red channel value.
+        g (int): Green channel value.
+        b (int): Blue channel value.
+
+    Returns:
+        int: A hexadecimal color.
+    """    
     return (b << 16) | (g << 8) | r
 
 def close():
